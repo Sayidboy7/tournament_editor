@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournament | Create</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-blue-600 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-white text-2xl font-bold">Tournament App</h1>
+            <a href="{{ url_for('index') }}" class="text-white hover:bg-blue-700 px-4 py-2 rounded">Bosh Sahifa</a>
+        </div>
+    </nav>
+
+    <div class="container mx-auto mt-8">
+        <h2 class="text-3xl font-bold mb-6 text-center">Yangi Turnir Yaratish</h2>
+        {% if error %}
+        <p class="text-red-600 text-center">{{ error }}</p>
+        {% endif %}
+        <form action="{{ url_for('create_tournament') }}" method="POST" class="max-w-md mx-auto bg-white p-6 rounded shadow">
+            <div class="mb-4">
+                <label for="title" class="block text-gray-700">Turnir Nomi</label>
+                <input type="text" name="title" id="title" class="w-full p-2 border rounded" required>
+            </div>
+            <div class="mb-4">
+                <label for="count" class="block text-gray-700">O'yinchilar Soni</label>
+                <input type="number" name="count" id="count" min="2" max="32" class="w-full p-2 border rounded" required>
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700">Yaratish</button>
+        </form>
+    </div>
+</body>
+</html>

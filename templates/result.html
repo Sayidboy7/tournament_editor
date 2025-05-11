@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournament | Results</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .bracket-line {
+            border-right: 2px solid #000;
+            height: 50%;
+            position: absolute;
+            right: 0;
+        }
+        .bracket-line-bottom {
+            top: 50%;
+        }
+        .bracket-line-top {
+            bottom: 50%;
+        }
+        .bracket-connector {
+            border-top: 2px solid #000;
+            width: 20px;
+            position: absolute;
+            right: -20px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-blue-600 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-white text-2xl font-bold">Tournament App</h1>
+            <a href="{{ url_for('index') }}" class="text-white hover:bg-blue-700 px-4 py-2 rounded">Bosh Sahifa</a>
+        </div>
+    </nav>
+
+    <div class="container mx-auto mt-8">
+        <h2 class="text-3xl font-bold mb-6 text-center">Turnir Fixtures: {{ tournament.title }}</h2>
+        {% if boxes %}
+        <div class="flex justify-between items-center">
+            <!-- Chap tomon (2 chorak final) -->
+            <div  style="justify-content: center;">
+                {% for box in boxes %}
+                <div class="bg-white p-4 mb-4 ml-80 rounded shadow flex justify-between items-center" style="width: 350px">
+                    <div>
+                        <p>{{ box.item1 }} Home</p>
+                        <p>{{ box.item2 }} Away</p>
+                    </div>
+                    <div class="bracket-line bracket-line-{{ loop.index0 == 0 and 'top' or 'bottom' }}"></div>
+                </div>
+                {% endfor %}
+                {% for box in boxes %}
+                <div class="bg-white p-4 mb-4 ml-80 rounded shadow flex justify-between items-center" style="width: 350px">
+                    <div>
+                        <p>{{ box.item2 }} Home</p>
+                        <p>{{ box.item1}} Away</p>
+                    </div>
+                    <div class="bracket-line bracket-line-{{ loop.index0 == 0 and 'top' or 'bottom' }}"></div>
+                </div>
+                {% endfor %}
+            </div>
+
+        {% else %}
+        <p class="text-center text-gray-600">Hozircha natijalar yo'q. <a href="{{ url_for('pair_players', id=tournament.id) }}" class="text-blue-600 hover:underline">O'yinchilarni juftlashtirish</a></p>
+        {% endif %}
+    </div>
+</body>
+</html>
