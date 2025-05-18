@@ -1,0 +1,10 @@
+-- This is the Tournament website you can create tournament and add the player to that tournament, website pare that player each other and fixtures all sorted in one page.
+-- You can show the result and show your all tournaments on the home page
+
+-- Functionalities : Home Page - you can show you all created tournaments and visit them all with properties
+-- Creating tournament - you create tournament with title of that tournament and add the player to the tournament you choose the count on the creating.
+-- Paring Players - you can also pare hte player if thay're paring automaticly you can pare they and thats all.
+
+--version : 1.1.0
+-- next update : coming soon
+-- Author : Sayidboy7
