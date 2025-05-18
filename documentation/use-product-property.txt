@@ -5,6 +5,6 @@
 -- Creating tournament - you create tournament with title of that tournament and add the player to the tournament you choose the count on the creating.
 -- Paring Players - you can also pare hte player if thay're paring automaticly you can pare they and thats all.
 
---version : 1.1.0
+-- version : 1.1.0
 -- next update : coming soon
 -- Author : Sayidboy7
